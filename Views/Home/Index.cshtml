@@ -18,31 +18,35 @@
             <th>Name</th>
             <th>Call</th>
             <th>Email</th>
+            <th>Address</th>
             <th></th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model.Contacts.OrderByDescending(c => c.DateAdded))
         {
-            <tr>
-                <td>
-                    <img src="@item.Avatar" style="width:50px;" />
-                </td>
-                <td>
-                    @item.FirstName @item.LastName
-                </td>
-                <td>
-                    <a href="tel:@item.Phone"><i class="fas fa-phone-square-alt fa-2x"></i></a>
-                </td>
-                <td>
-                    <a href="mailto:@item.Email"><i class="fas fa-paper-plane fa-2x"></i></a>
-                </td>
-                <td>
-                    <a asp-controller="Contacts" asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                    <a asp-controller="Contacts" asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                    <a asp-controller="Contacts" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                </td>
-            </tr>
+        <tr>
+            <td>
+                <img src="@item.Avatar" style="width:50px;" />
+            </td>
+            <td>
+                @item.FirstName @item.LastName
+            </td>
+            <td>
+                <a href="tel:@item.Phone"><i class="fas fa-phone-square-alt fa-2x"></i></a>
+            </td>
+            <td>
+                <a href="mailto:@item.Email"><i class="fas fa-paper-plane fa-2x"></i></a>
+            </td>
+            <td>
+                <a href="https://www.google.com/maps/place/@item.Address1.Split()[0]+@item.Address1.Split()[1]+@item.Address1.Split()[2]+@item.City+@item.ZipCode"><i class="fas fa-map-marker-alt fa-2x"></i></a>
+            </td>
+            <td>
+                <a asp-controller="Contacts" asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-controller="Contacts" asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-controller="Contacts" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
         }
     </tbody>
 </table>

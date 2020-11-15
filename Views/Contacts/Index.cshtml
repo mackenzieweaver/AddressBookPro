@@ -63,23 +63,26 @@
             @*<td>
                 <img src="@item.Avatar" style="width:75px;" />
             </td>*@
-            <td>
-                @Html.DisplayFor(modelItem => item.Address1)
-            </td>
+        <td>
+            <a href="https://www.google.com/maps/place/@item.Address1.Split()[0]+@item.Address1.Split()[1]+@item.Address1.Split()[2]+@item.City+@item.ZipCode">@item.Address1</a>
+        </td>
             @*<td>
                 @Html.DisplayFor(modelItem => item.Address2)
             </td>*@
+        <td>
+            @*@Html.DisplayFor(modelItem => item.City)*@
+            <a href="https://www.google.com/maps/place/@item.Address1.Split()[0]+@item.Address1.Split()[1]+@item.Address1.Split()[2]+@item.City+@item.ZipCode">@item.City</a>
+        </td>
+        <td>
+            @*@Html.DisplayFor(modelItem => item.State)*@
+            <a href="https://www.google.com/maps/place/@item.Address1.Split()[0]+@item.Address1.Split()[1]+@item.Address1.Split()[2]+@item.City+@item.ZipCode">@item.State</a>
+        </td>
+        <td>
+            @*@Html.DisplayFor(modelItem => item.ZipCode)*@
+            <a href="https://www.google.com/maps/place/@item.Address1.Split()[0]+@item.Address1.Split()[1]+@item.Address1.Split()[2]+@item.City+@item.ZipCode">@item.ZipCode</a>
+        </td>
             <td>
-                @Html.DisplayFor(modelItem => item.City)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.State)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ZipCode)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Phone)
+                <a href="tel:@item.Phone">@item.Phone</a>
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.DateAdded)
