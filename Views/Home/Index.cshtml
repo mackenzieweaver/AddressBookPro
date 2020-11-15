@@ -19,6 +19,7 @@
             <th>Call</th>
             <th>Email</th>
             <th>Address</th>
+            <th>Notes</th>
             <th></th>
         </tr>
     </thead>
@@ -40,6 +41,9 @@
             </td>
             <td>
                 <a href="https://www.google.com/maps/place/@item.Address1.Split()[0]+@item.Address1.Split()[1]+@item.Address1.Split()[2]+@item.City+@item.ZipCode"><i class="fas fa-map-marker-alt fa-2x"></i></a>
+            </td>
+            <td>
+                <a asp-controller="Notes" asp-action="Index" asp-route-id="@item.Id"><i class="fas fa-sticky-note fa-2x"></i></a>
             </td>
             <td>
                 <a asp-controller="Contacts" asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
