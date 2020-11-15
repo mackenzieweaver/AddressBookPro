@@ -1,0 +1,42 @@
+﻿@model AddressBookPro.Models.HomeViewModel
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Favorites</h1>
+    <p>(with an avatar)</p>
+</div>
+<p>
+    <a class="btn btn-primary btn-lg" asp-controller="Contacts" asp-action="Create">New Contact</a>
+</p>
+<table class="table contactsTable table-striped">
+
+    <thead>
+        <tr>
+            <th></th>
+            <th>Name</th>
+            <th>Call</th>
+            <th>Email</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Contacts.OrderByDescending(c => c.DateAdded))
+        {
+            <tr>
+                <td>
+                    <img src="@item.Avatar" style="width:75px;"/>
+                </td>
+                <td>
+                    @item.FirstName @item.LastName 
+                </td>
+                <td>
+                    <a href="tel:@item.Phone"><i class="fas fa-phone-square-alt fa-3x"></i></a>
+                </td>
+                <td>
+                    <a href="mailto:@item.Email"><i class="fas fa-paper-plane fa-3x"></i></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
