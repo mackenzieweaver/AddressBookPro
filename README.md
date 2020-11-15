@@ -21,3 +21,8 @@ This project was built in order to practice creating new projects, adding models
 * C#
 * MS SQL DB
 
+## Installation
+
+To download and run locally, clone this repository and open with visual studio.
+
+git clone https://github.com/mackenzieweaver/AddressBookPro
