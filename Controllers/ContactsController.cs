@@ -24,7 +24,7 @@ namespace AddressBookPro.Controllers
         // GET: Contacts
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Contact.ToListAsync());
+            return View(await _context.Contact.OrderByDescending(c => c.DateAdded).ToListAsync());
         }
 
         // GET: Contacts/Details/5
