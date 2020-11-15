@@ -26,3 +26,7 @@ This project was built in order to practice creating new projects, adding models
 To download and run locally, clone this repository and open with visual studio.
 
 git clone https://github.com/mackenzieweaver/AddressBookPro
+
+## Contributing
+
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
