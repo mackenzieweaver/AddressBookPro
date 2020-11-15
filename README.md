@@ -13,3 +13,10 @@ Address Book Pro is a mini project where a user can keep track of their contacts
 ## Purpose
 
 This project was built in order to practice creating new projects, adding models, scaffolding them, and working with a database.
+
+## Built with
+
+* ASP.NET
+* C#
+* MS SQL DB
+
