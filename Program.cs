@@ -1,4 +1,5 @@
 using AddressBookPro.Models;
+using AddressBookPro.Utilities;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -13,10 +14,10 @@ namespace AddressBookPro
 {
     public class Program
     {
-        public static void Main(string[] args)
+        public static async Task Main(string[] args)
         {
             var host = CreateHostBuilder(args).Build();
-
+            await DataHelper.ManageData(host);
             using (var scope = host.Services.CreateScope())
             {
                 var services = scope.ServiceProvider;
@@ -38,6 +39,8 @@ namespace AddressBookPro
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
+                    webBuilder.CaptureStartupErrors(true);
+                    webBuilder.UseSetting(WebHostDefaults.DetailedErrorsKey, "true");
                     webBuilder.UseStartup<Startup>();
                 });
     }

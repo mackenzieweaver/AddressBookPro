@@ -1,4 +1,5 @@
 using AddressBookPro.Data;
+using AddressBookPro.Utilities;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -26,8 +27,10 @@ namespace AddressBookPro
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            //services.AddDbContext<ApplicationDbContext>(options =>
+            //    options.UseSqlServer(Configuration.GetConnectionString("ApplicationDbContext")));
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("ApplicationDbContext")));
+                options.UseNpgsql(DataHelper.GetConnectionString(Configuration)));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
